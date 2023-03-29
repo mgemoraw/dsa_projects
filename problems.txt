@@ -15,8 +15,7 @@ C) Search operation that accept student name then search and display his/here in
 D) Display operation that displays student information in the linked list.
 E) Sort operation that sort students linked list by their name in ascending order (use either ofsearching technique.
 
-4. Implement towns linked list from BahirDar to Addis Ababa. Each town record contain the name of the town, distance from its neighbor, longitude and latitudes. Your program should
-implement operations of insertion, deletion ,searching by name and displaying all town
+4. Implement towns linked list from BahirDar to Addis Ababa. Each town record contain the name of the town, distance from its neighbor, longitude and latitudes. Your program should implement operations of insertion, deletion ,searching by name and displaying all town
 information’s. Write another operation to accept the starting and destination town and display the distance between them (use linked list).
 
 5. Chiss Abay Garage is found at Bahirdar city . This garage has one entrance and one exit gates. Its parking which used to hold the repaired cars as a queue serves only a single car(does not allow two cars parked parallelly). The garage uses first come first served data structure principle (FIFO). write a c++ program that stores the car information like plate number, type of cars,
