@@ -1,5 +1,7 @@
 #include "student.h"
 
+size_t numberOfStudents = 0;
+
 int main(void)
 {
     student_t *head = NULL;
@@ -20,6 +22,7 @@ int main(void)
                 print_data(head);
                 break;
             case 3:
+                head = delete_by_id(head);
                 break;
             case 4:
                 break;
@@ -31,8 +34,11 @@ int main(void)
                 break;
             case 8:
                 break;
+            case 9:
+                print_count();
+                break;
             default:
-                std::cout << "Invalid Menu! Please select the right Operation!";
+                std::cout << "Invalid Menu! Please select the right Operation!\n";
                 break;
         }
     } while (option != 0);
@@ -72,22 +78,19 @@ student_t *add_student(student_t *head)
     }
     else 
     {
-    while (temp->next != NULL)
-    {
-        temp = temp->next;
+        while (temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+        temp->next = node;
+        node->prev = temp;
     }
-    temp->next = node;
-    node->prev = temp;
-
     numberOfStudents++;
-    }
+
 
     return head;
 }
-student_t *dismiss_student(student_t *head)
-{
-    return NULL;
-}
+
 void print_data(student_t *head)
 {
     size_t index = 1;
@@ -117,6 +120,40 @@ void print_data(student_t *head)
     std::cout <<"\n\n";
     return;
 }
+student_t *delete_by_id(student_t *head)
+{
+    student_t *current = head, *temp;
+    string id;
+
+    temp = new student_t;
+
+    if (head == NULL)
+        return NULL;
+    
+    std::cout << "Enter Id Number of The Student to delete: ";
+    std::cin >> id;
+    while (current->id != id)
+        current = current->next;
+    
+    temp = current->prev;
+    temp->next = current->next;
+
+
+    while (temp->prev != NULL)
+    {
+        temp = temp->prev;
+    }
+
+    head = temp;
+    delete(current);
+    numberOfStudents--;
+    return (head);
+}
+
+student_t *remove_dismisals(student_t *head)
+{
+    return NULL;
+}
 void search_student(student_t *head, string name)
 {
 
@@ -129,7 +166,9 @@ void sort_by_id(student_t *head)
 {
     
 }
-void delete_by_id(student_t *head)
-{
 
+
+void print_count()
+{
+    std::cout << "\nTotal Number of Students: " << numberOfStudents << "\n";
 }

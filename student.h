@@ -12,7 +12,9 @@ using std::string;
 // define grade limit
 #define MIN_CGPA 1.75
 
-static int numberOfStudents = 0;
+// size_t numberOfStudents = 0;
+
+
 typedef struct Student
 {
     struct Student *prev;
@@ -27,16 +29,17 @@ typedef struct Student
 
 // list operation functions
 student_t *add_student(student_t *head);
-student_t *dismiss_student(student_t *head);
+student_t *remove_dismisals(student_t *head);
 void print_data(student_t *head);
 void search_student(student_t *head, string name);
+void print_count();
 
 //sorting functions
 void sort_by_name(student_t *head);
 void sort_by_name(student_t *head);
 
 // deleting functions
-void delete_by_id(student_t *head);
+student_t *delete_by_id(student_t *head);
 
 // utility functions
 void print_menu();
