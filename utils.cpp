@@ -9,7 +9,7 @@ void print_menu()
     std::cout << "\t 2: View All Records\n";
     std::cout << "\t 3: delete student by id\n";
     std::cout << "\t 4: delete student by name\n";
-    std::cout << "\t 5: Check Academic Status\n";
+    std::cout << "\t 5: Delete All Records\n";
     std::cout << "\t 6: Remove Dismissals\n";
     std::cout << "\t 7: Search Student by id\n";
     std::cout << "\t 8: Search Student by name\n";
@@ -40,4 +40,23 @@ void print_header()
     std::cout << " No\t ID\t First Name\t ";
     std::cout <<"Last Name \tSex \tCGPA \tStatus\n";
     std::cout << "----------------------------------------------------------------------\n";
+}
+
+
+string check_accademic_status(double gpa)
+{
+    string status;
+
+    if (gpa <= MIN_CGPA)
+        status = "Dismissal";
+    else if (gpa < 2.0)
+        status = "Warning!";
+    else if (gpa < 3.5)
+        status = "Pass!";
+    else if (gpa < 4.0)
+       status = "Distiniction!";
+    else 
+       status = "(nil)";
+
+    return status;
 }

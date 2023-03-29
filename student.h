@@ -34,12 +34,17 @@ void print_data(student_t *head);
 void search_student(student_t *head, string name);
 void print_count();
 
+void free_all_records(student_t **head);
+string check_accademic_status(double gpa);
+
+
 //sorting functions
 void sort_by_name(student_t *head);
 void sort_by_name(student_t *head);
 
 // deleting functions
 student_t *delete_by_id(student_t *head);
+student_t *delete_by_name(student_t *head);
 
 // utility functions
 void print_menu();

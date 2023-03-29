@@ -5,6 +5,7 @@ size_t numberOfStudents = 0;
 int main(void)
 {
     student_t *head = NULL;
+    //head = new student_t;
 
     int option = 0;
 
@@ -25,8 +26,10 @@ int main(void)
                 head = delete_by_id(head);
                 break;
             case 4:
+                head = delete_by_name(head);
                 break;
             case 5:
+                free_all_records(&head);
                 break;
             case 6:
                 break;
@@ -67,7 +70,8 @@ student_t *add_student(student_t *head)
     std::cout << "Enter CGPA: ";
     std::cin >> node->CGPA;
 
-    node->status = "";
+    node->status = check_accademic_status(node->CGPA);
+    
     node->prev = NULL;
     node->next = NULL;
 
@@ -148,6 +152,54 @@ student_t *delete_by_id(student_t *head)
     delete(current);
     numberOfStudents--;
     return (head);
+}
+
+student_t *delete_by_name(student_t *head)
+{
+    student_t *current = head, *temp;
+    string fname;
+    string lname;
+
+    temp = new student_t;
+
+    if (head == NULL)
+        return NULL;
+    
+    std::cout << "Enter First Name: ";
+    std::cin >> fname;
+    std::cout << "Enter Last Name: ";
+    std::cin >> lname;
+    while (current->fname != fname && current->lname != lname)
+        current = current->next;
+    
+    temp = current->prev;
+    temp->next = current->next;
+
+    while (temp->prev != NULL)
+    {
+        temp = temp->prev;
+    }
+
+    head = temp;
+    delete(current);
+    numberOfStudents--;
+    return (head);
+}
+
+void free_all_records(student_t **head)
+{
+    //string status[] = {"Distiniction", "Warning", "Pass", "Dismissal"};
+    student_t *temp;
+
+    if ((*head) = NULL)
+        return ;
+  
+    while((temp = *head) != NULL)
+    { 
+        (*head) = temp->next;
+        delete(temp); 
+    }
+    return ;
 }
 
 student_t *remove_dismisals(student_t *head)
