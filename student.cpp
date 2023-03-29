@@ -32,10 +32,13 @@ int main(void)
                 free_all_records(&head);
                 break;
             case 6:
+                head = remove_dismisals(head);
                 break;
             case 7:
+                search_student(head);
                 break;
             case 8:
+                sort_records(head);
                 break;
             case 9:
                 print_count();
@@ -138,10 +141,9 @@ student_t *delete_by_id(student_t *head)
     std::cin >> id;
     while (current->id != id)
         current = current->next;
-    
+
     temp = current->prev;
     temp->next = current->next;
-
 
     while (temp->prev != NULL)
     {
@@ -204,15 +206,156 @@ void free_all_records(student_t **head)
 
 student_t *remove_dismisals(student_t *head)
 {
-    return NULL;
-}
-void search_student(student_t *head, string name)
-{
+    student_t *current, *temp;
 
+    temp = new student_t;
+
+
+    if (head == NULL)
+        return NULL;
+
+    current = head;
+    while (current != NULL)
+    {
+        if (current->CGPA  <= MIN_CGPA)
+        {
+            temp = current->prev;
+            temp->next = current->next;
+            delete(current);
+            current = temp;
+        }       
+    }
+    
+    while (temp->prev != NULL)
+    {
+        temp = temp->prev;
+    }
+    head = temp;
+
+    return (head);   
 }
+
+
+
+void search_student(student_t *head)
+{
+    int soption = 0;
+
+    if (head == NULL)
+    {
+        std::cout << "No Records Available\n";
+        return;
+    }
+
+    std::cout << "Select Options\n";
+    std::cout << "\t 1: search by Id\n";
+    std::cout << "\t 2: search by frist and last name\n";
+    std::cout << "\t 0: to cancel\n";
+
+    switch (soption)
+    {
+        case 0:
+            break;
+        case 1:
+            search_by_id(head);
+        case 2:
+            search_by_name(head);
+        default:
+            std::cout << "Invalid Choice\n";
+            break;
+    }   
+    
+}
+
+
+void search_by_name(student_t *head)
+{
+    student_t *temp;
+    size_t index = 0;
+    string fname, lname;
+    
+    std::cout << "Enter the first name: ";
+    std::cin >> fname;
+
+    std::cout << "Enter Last Name: ";
+    std::cin >> lname;
+
+    while (temp != NULL)
+    {
+        if (temp->fname == fname && temp->lname == lname)
+        {
+            std::cout << index << "   ";
+            std::cout << temp->id << "\t";
+            std::cout << temp->fname << "\t";
+            std::cout << temp->lname << "\t";
+            std::cout << temp->sex << "\t";
+            std::cout << temp->CGPA << "\t";
+            std::cout << temp->status << "\t\n";
+        }
+        index++;
+        temp = temp->next; 
+    }
+}
+void search_by_id(student_t *head)
+{
+    student_t *temp;
+    size_t index = 0;
+    string id;
+    
+    std::cout << "Enter ID: ";
+    std::cin >> id;
+
+    while (temp != NULL)
+    {
+        if (temp->id == id)
+        {
+            std::cout << index << "   ";
+            std::cout << temp->id << "\t";
+            std::cout << temp->fname << "\t";
+            std::cout << temp->lname << "\t";
+            std::cout << temp->sex << "\t";
+            std::cout << temp->CGPA << "\t";
+            std::cout << temp->status << "\t\n";
+        }
+        index++;
+        temp = temp->next; 
+    }
+}
+
+
+void sort_records(student_t *head)
+{
+    int soption = 0;
+
+    if (head == NULL)
+    {
+        std::cout << "No Records Available\n";
+        return;
+    }
+
+    std::cout << "Select Options\n";
+    std::cout << "\t 1: sort by Id\n";
+    std::cout << "\t 2: sort by first name\n";
+    std::cout << "\t 0: to cancel\n";
+
+    switch (soption)
+    {
+        case 0:
+            break;
+        case 1:
+            sort_by_id(head);
+        case 2:
+            sort_by_name(head);
+        default:
+            std::cout << "Invalid Choice\n";
+            break;
+    }   
+    
+}
+
 void sort_by_name(student_t *head)
 {
-   
+
 }
 void sort_by_id(student_t *head)
 {

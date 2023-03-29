@@ -38,9 +38,16 @@ void free_all_records(student_t **head);
 string check_accademic_status(double gpa);
 
 
+
+// searching by id and by name
+void search_student(student_t *head);
+void search_by_id(student_t *head);
+void search_by_name(student_t *head);
+
 //sorting functions
+void sort_records(student_t *head);
 void sort_by_name(student_t *head);
-void sort_by_name(student_t *head);
+void sort_by_id(student_t *head);
 
 // deleting functions
 student_t *delete_by_id(student_t *head);

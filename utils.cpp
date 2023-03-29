@@ -12,7 +12,7 @@ void print_menu()
     std::cout << "\t 5: Delete All Records\n";
     std::cout << "\t 6: Remove Dismissals\n";
     std::cout << "\t 7: Search Student by id\n";
-    std::cout << "\t 8: Search Student by name\n";
+    std::cout << "\t 8: Sort Records\n";
     std::cout << "\t 9: View Number Records\n";
     std::cout << "#####################################################\n";
 
