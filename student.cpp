@@ -247,23 +247,29 @@ void search_student(student_t *head)
         return;
     }
 
-    std::cout << "Select Options\n";
-    std::cout << "\t 1: search by Id\n";
-    std::cout << "\t 2: search by frist and last name\n";
-    std::cout << "\t 0: to cancel\n";
-
-    switch (soption)
-    {
-        case 0:
-            break;
-        case 1:
-            search_by_id(head);
-        case 2:
-            search_by_name(head);
-        default:
-            std::cout << "Invalid Choice\n";
-            break;
-    }   
+    do {
+        std::cout << "Select Options\n";
+        std::cout << "\t 1: search by Id\n";
+        std::cout << "\t 2: search by frist and last name\n";
+        std::cout << "\t 0: to cancel\n ";
+        std::cout << "Enter Search Option: ";
+        
+        std::cin >> soption;
+        switch (soption)
+        {
+            case 0:
+                break;
+            case 1:
+                search_by_id(head);
+            case 2:
+                search_by_name(head);
+            default:
+                std::cout << "Invalid Choice\n";
+                break;
+        } 
+    }while (soption != 0); 
+    
+     
     
 }
 
@@ -332,26 +338,30 @@ void sort_records(student_t *head)
         std::cout << "No Records Available\n";
         return;
     }
+    do {
+        std::cout << "Select Options\n";
+        std::cout << "\t 1: sort by Id\n";
+        std::cout << "\t 2: sort by first name\n";
+        std::cout << "\t 0: to cancel\n";
+        std::cout <<"Enter Sort Option: ";
 
-    std::cout << "Select Options\n";
-    std::cout << "\t 1: sort by Id\n";
-    std::cout << "\t 2: sort by first name\n";
-    std::cout << "\t 0: to cancel\n";
-
-    switch (soption)
-    {
-        case 0:
-            break;
-        case 1:
-            sort_by_id(head);
-        case 2:
-            sort_by_name(head);
-        default:
-            std::cout << "Invalid Choice\n";
-            break;
-    }   
-    
+        std::cin >> soption;
+        switch (soption)
+        {
+            case 0:
+                break;
+            case 1:
+                sort_by_id(head);
+            case 2:
+                sort_by_name(head);
+            default:
+                std::cout << "Invalid Choice\n";
+                break;
+        }  
+    } while (soption != 0);   
 }
+
+
 
 void sort_by_name(student_t *head)
 {
