@@ -1,4 +1,5 @@
-# Data Structure in C++ projects
+# Data Structure in C++
+### Simple projects
 
 ->The problem questions are included inside the ```problems.txt``` file
 
