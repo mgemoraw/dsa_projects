@@ -193,7 +193,7 @@ void free_all_records(student_t **head)
     //string status[] = {"Distiniction", "Warning", "Pass", "Dismissal"};
     student_t *temp;
 
-    if ((*head) = NULL)
+    if ((*head) == NULL)
         return ;
   
     while((temp = *head) != NULL)
@@ -215,22 +215,38 @@ student_t *remove_dismisals(student_t *head)
         return NULL;
 
     current = head;
-    while (current != NULL)
+
+    if (current->next == NULL)
     {
+        if (current->CGPA <= MIN_CGPA)
+        {
+            delete (current);
+            return NULL;
+        }
+    }
+    while (current->next != NULL)
+    {
+        
         if (current->CGPA  <= MIN_CGPA)
         {
-            temp = current->prev;
-            temp->next = current->next;
-            delete(current);
-            current = temp;
-        }       
+            temp = current;
+            current = current->next;
+            current->prev = temp->prev;
+            delete(temp);
+            numberOfStudents--;
+        }
+        else
+        {
+            current = current->next;
+        }
+
     }
     
-    while (temp->prev != NULL)
+    while (current->prev != NULL)
     {
-        temp = temp->prev;
+        current = current->prev;
     }
-    head = temp;
+    head = current;
 
     return (head);   
 }
@@ -261,8 +277,10 @@ void search_student(student_t *head)
                 break;
             case 1:
                 search_by_id(head);
+                break;
             case 2:
                 search_by_name(head);
+                break;
             default:
                 std::cout << "Invalid Choice\n";
                 break;
@@ -286,6 +304,10 @@ void search_by_name(student_t *head)
     std::cout << "Enter Last Name: ";
     std::cin >> lname;
 
+    
+    std::cout << "\n\n==========Search Results==========\n";
+
+    temp = head;
     while (temp != NULL)
     {
         if (temp->fname == fname && temp->lname == lname)
@@ -301,6 +323,8 @@ void search_by_name(student_t *head)
         index++;
         temp = temp->next; 
     }
+    std::cout << "\n======================\n";
+
 }
 void search_by_id(student_t *head)
 {
@@ -311,10 +335,12 @@ void search_by_id(student_t *head)
     std::cout << "Enter ID: ";
     std::cin >> id;
 
+    temp = head;
     while (temp != NULL)
     {
         if (temp->id == id)
         {
+            std::cout << "\n\n==========Search Results==========\n";
             std::cout << index << "   ";
             std::cout << temp->id << "\t";
             std::cout << temp->fname << "\t";
@@ -326,6 +352,7 @@ void search_by_id(student_t *head)
         index++;
         temp = temp->next; 
     }
+    std::cout << "\n======================\n";
 }
 
 
