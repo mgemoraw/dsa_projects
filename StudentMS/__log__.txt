@@ -1,0 +1,10 @@
+[new Log operation: Appended]
+0          1          fff                  ggg                           f 3.00       Pass!                
+[new Log operation: Appended]
+0          2          ldjfdlfjd            lfjdlfjl                      m 2.00       Pass!                
+[new Log operation: Appended]
+0          1          fff                  ggggg                         m 2.00       Pass!                
+[new Log operation: Appended]
+0          0001       fljfljfelj           jfljf                         m 3.50       Pass!                
+[new Log operation: Appended]
+0          0005       jlfjljferj           jfljfelrjerj                  m 2.50       Pass!                
