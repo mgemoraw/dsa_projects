@@ -1,2 +1,2 @@
 #!/bin/bash
-g++ towns.cpp util_towns.cpp -o towns
+g++ -Wall -Wextra -Werror -pedantic ./*.cpp  -o towns

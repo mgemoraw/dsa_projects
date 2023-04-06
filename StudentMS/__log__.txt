@@ -8,3 +8,5 @@
 0          0001       fljfljfelj           jfljf                         m 3.50       Pass!                
 [new Log operation: Appended]
 0          0005       jlfjljferj           jfljfelrjerj                  m 2.50       Pass!                
+[new Log operation: Appended]
+0          001        f                    l                             f 3.00       Pass!                
