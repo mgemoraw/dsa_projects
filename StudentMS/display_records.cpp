@@ -8,7 +8,7 @@
  */
 void print_data(student_t *head)
 {
-    size_t index = 1;
+    unsigned long int index = 1;
 
     if (is_empty(head))
     {
@@ -31,7 +31,7 @@ void print_data(student_t *head)
         std::cout << temp->CGPA << "\t";
         std::cout << temp->status << "\t\n";
         */
-        printf("%-10ld %-10s %-20s %-20s %-10c %-10.2lf %-20s \n", index, (head->id).c_str(), (head->fname).c_str(), (head->lname).c_str(),head->sex, head->CGPA, (head->status).c_str());
+        printf("%-10lu %-10s %-20s %-20s %-10c %-10.2lf %-20s \n", index, (head->id).c_str(), (head->fname).c_str(), (head->lname).c_str(),head->sex, head->CGPA, (head->status).c_str());
         index++;
         
         temp = temp->next;

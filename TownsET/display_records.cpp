@@ -8,7 +8,7 @@
  */
 void print_records(town_t **head)
 {
-    size_t index = 1;
+    unsigned long int index = 1;
 
     if (head == NULL)
     {
@@ -33,7 +33,7 @@ void print_records(town_t **head)
         cout << temp->CGPA << "\t";
         cout << temp->status << "\t\n";
         */
-        printf("%-5ld %-10s %-20s %-10s %-10s %10.3lf %10.3lf \n", index, (temp->id).c_str(), (temp->name).c_str(), (temp->latitude).c_str(), (temp->longitude).c_str(), temp->dist_from_bdr, temp->dist_from_aa);
+        printf("%-5lu %-10s %-20s %-10s %-10s %10.3lf %10.3lf \n", index, (temp->id).c_str(), (temp->name).c_str(), (temp->latitude).c_str(), (temp->longitude).c_str(), temp->dist_from_bdr, temp->dist_from_aa);
         index++;
         
         temp = temp->next;
