@@ -1,2 +1,2 @@
 #!/bin/bash
-g++ student.cpp utils.cpp -o student
+g++ -Wall -Wextra -Werror -pedantic ./*.cpp -o student
