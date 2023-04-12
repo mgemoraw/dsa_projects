@@ -1,10 +1,16 @@
-# Data Structure in C++
-### Simple projects
+# Data Structure Proeject Implemeted using C++
+
+This Project is done for the course Data structures and algorithms in Computer Science Department
+
+The full source code will by uploaded to [!](https:/www.github.com/mgemoraw/dsa_project) after the 08 Apr 2023. new changes will be updated in the repository. Thus original source code belongs mgemoraw(meng.get4@gmail.com). you can contact the owner for feedbacks.
+
 
 ->The problem questions are included inside the ```problems.txt``` file
 
 If you haven't added gcc/g++ compiler in the system path, please add it first. To check if the compiler is in the system path of your machine 
 - execute ```g++ --version``` in the command line terminal (cmd for windows)
+
+The full code is tested using gnu/g++ compiler. To test it using other compilers, you need to change the compatibility headers suitable for the compiler.
 
 
 ## usage

@@ -10,3 +10,7 @@
 0          0005       jlfjljferj           jfljfelrjerj                  m 2.50       Pass!                
 [new Log operation: Appended]
 0          001        f                    l                             f 3.00       Pass!                
+[new Log operation: Appended]
+0          1          0                    ff                            k 3.00       Pass!                
+[new Log operation: Appended]
+0          2          mm                   3                             f 3.00       Pass!                
